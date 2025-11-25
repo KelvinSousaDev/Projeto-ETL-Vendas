@@ -1,4 +1,5 @@
 import pandas as pd
+import sqlite3
 
 print("Lendo o arquivo CSV...")
 df = pd.read_csv('vendas.csv')
@@ -31,3 +32,11 @@ print(f"Linhas Atuais: {len(df)}")
 df = df.drop_duplicates()
 
 print(f"Linhas restantes: {len(df)}")
+
+#Salvando Tudo no Banco de Dados
+print("\n--- SALVANDO NO BANCO (LOAD) ---")
+conexao = sqlite3.connect('vendas.db')
+
+df.to_sql('vendas_tratadas', conexao, if_exists='replace', index=False)
+
+conexao.close()
