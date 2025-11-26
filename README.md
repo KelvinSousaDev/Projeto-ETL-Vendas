@@ -70,15 +70,25 @@ python etl_pipeline.py
 
 ```
 
-# 📊 Resultados (Antes e Depois)
+## 📊 Resultados (Antes e Depois)
 
 **Antes (CSV Sujo):**
+Dados misturados, formatação brasileira de moeda e datas inconsistentes.
 
-![alt text](image.png)
+```text
+valor_venda | data_venda | nome_produto
+R$ 3.500,00 | 03/01/2025 | Notebook (Duplicado)
+50,00       | Data Ruim  | Mouse
+```
 
 **Depois (SQL Limpo):**
+Dados padronizados, tipagem correta (float/date) e sem duplicatas.
 
-![alt text](image-1.png)
+```text
+valor  | data       | descricao
+3500.0 | 2025-01-03 | Notebook (Único)
+50.0   | NaT        | Mouse
+```
 
 ## Autor
 
