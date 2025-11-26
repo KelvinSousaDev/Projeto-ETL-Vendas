@@ -8,7 +8,7 @@ df = pd.read_csv('vendas.csv')
 print("--- Tipos de Dados Originais ---")
 print(df.info())
 print("\n--- Amostra do Caos ---")
-print(df.head())
+print(df)
 
 #Arrumando a Coluna "valor_venda"
 print("Limpando valores...")
